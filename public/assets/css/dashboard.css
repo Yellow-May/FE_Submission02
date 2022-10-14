@@ -4,8 +4,12 @@ main {
 	height: 100%;
 }
 
+main {
+	display: grid;
+	grid-template-columns: 25% 75%;
+}
+
 main aside {
-	width: 25%;
 	height: 100%;
 	border-right: thin solid gray;
 	padding: 48px 24px 0;
@@ -36,4 +40,39 @@ main aside nav > * {
 	font-size: 1.125rem;
 	font-weight: 500;
 	color: rgb(56, 56, 56);
+}
+
+main .content {
+	width: 100%;
+	padding: 24px 4%;
+}
+
+main .content .heading {
+	display: flex;
+	align-items: center;
+	margin-bottom: 24px;
+}
+
+main .content .stats {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 16px;
+}
+
+main .content .stats .card {
+	border: thin solid;
+	border-radius: 5px;
+	padding: 12px;
+	color: gray;
+}
+
+main .content .stats .card .card-heading {
+	font-size: 0.7em;
+	display: block;
+	margin-bottom: 12px;
+}
+
+main .content .stats .card p {
+	padding-left: 8px;
+	font-weight: 600;
 }
