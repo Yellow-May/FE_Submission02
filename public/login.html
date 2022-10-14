@@ -9,11 +9,12 @@
 		<link rel="stylesheet" href="assets/css/login.css" />
 		<title>Freddy's Artisanal Halloween Candy Shop | Login</title>
 
-		<script defer src="assets/js/protected-routes.js"></script>
+		<script defer src="assets/js/protected-routes.js" type="module"></script>
+		<script defer src="assets/js/login-script.js" type="module"></script>
 	</head>
 	<body>
 		<main>
-			<form id="loginForm">
+			<form name="login" id="loginForm">
 				<div class="heading">
 					<h1>Freddy's Artisanal Halloween Candy Shop</h1>
 					<img src="assets/img/Freddys_Logo.svg" alt="Freddy" class="logo" />
@@ -26,6 +27,7 @@
 					id="username"
 					placeholder="username"
 					autocomplete="off"
+					required="true"
 				/>
 
 				<input
@@ -35,9 +37,10 @@
 					aria-label="password"
 					placeholder="*******"
 					autocomplete="off"
+					required="true"
 				/>
 
-				<button type="submit">Login</button>
+				<button type="submit" id="btn">Login</button>
 			</form>
 		</main>
 	</body>
