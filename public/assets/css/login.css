@@ -1,0 +1,47 @@
+html,
+body,
+main {
+	height: 100%;
+}
+
+main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+main form {
+	border: 8px solid rgb(175, 175, 175);
+	max-width: 420px;
+	padding: 24px;
+}
+
+main form .heading {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 24px 0 48px;
+}
+
+main form .heading h1 {
+	color: gray;
+}
+
+main form .heading img {
+	width: 160px;
+}
+
+main form input {
+	width: 100%;
+	height: 30px;
+	margin-bottom: 24px;
+	padding: 8px;
+	font-size: 16px;
+}
+
+main form button {
+	width: 100%;
+	height: 30px;
+	margin-top: 32px;
+	cursor: pointer;
+}

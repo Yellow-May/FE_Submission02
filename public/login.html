@@ -4,11 +4,41 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Fredy's Artisanal Halloween Candy Shop | Login</title>
+
+		<link rel="stylesheet" href="assets/css/global.css" />
+		<link rel="stylesheet" href="assets/css/login.css" />
+		<title>Freddy's Artisanal Halloween Candy Shop | Login</title>
 
 		<script defer src="assets/js/protected-routes.js"></script>
 	</head>
 	<body>
-		<button id="click">Click</button>
+		<main>
+			<form id="loginForm">
+				<div class="heading">
+					<h1>Freddy's Artisanal Halloween Candy Shop</h1>
+					<img src="assets/img/Freddys_Logo.svg" alt="Freddy" class="logo" />
+				</div>
+
+				<input
+					type="text"
+					name="username"
+					aria-label="username"
+					id="username"
+					placeholder="username"
+					autocomplete="off"
+				/>
+
+				<input
+					type="password"
+					name="password"
+					id="password"
+					aria-label="password"
+					placeholder="*******"
+					autocomplete="off"
+				/>
+
+				<button type="submit">Login</button>
+			</form>
+		</main>
 	</body>
 </html>
