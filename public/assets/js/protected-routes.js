@@ -6,7 +6,7 @@ if (pathname.startsWith("/public")) {
 
 const AUTH_DATA = JSON.parse(localStorage.getItem("FE_Submission02_Auth"));
 if (!pathname.split("/").includes("login.html")) {
-   if (!AUTH_DATA?.user) {
+   if (!AUTH_DATA?.access_token) {
       if (ENV === 'development') {
          window.location.assign("/public/login.html")
       } else {
@@ -14,7 +14,7 @@ if (!pathname.split("/").includes("login.html")) {
       }
    }
 } else {
-   if (AUTH_DATA?.user) {
+   if (AUTH_DATA?.access_token) {
       if (ENV === 'development') {
          window.location.replace("/public")
       } else {
@@ -22,3 +22,5 @@ if (!pathname.split("/").includes("login.html")) {
       }
    }
 }
+
+export { ENV }
