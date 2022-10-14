@@ -4,9 +4,26 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="assets/css/global.css" />
+		<link rel="stylesheet" href="assets/css/dashboard.css" />
 		<title>Fredy's Dashboard | Orders</title>
 
 		<script defer src="assets/js/protected-routes.js" type="module"></script>
+		<script defer src="assets/js/navigations.js" type="module"></script>
 	</head>
-	<body></body>
+	<body>
+		<main>
+			<aside>
+				<img src="assets/img/Freddys_Logo.svg" alt="Freddys" />
+
+				<nav id="navigations">
+					<a href="/">Dashboard</a>
+					<a href="/orders.html">Orders</a>
+					<button>Logout</button>
+				</nav>
+			</aside>
+			<div class="content"></div>
+		</main>
+	</body>
 </html>
