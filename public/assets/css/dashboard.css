@@ -190,3 +190,8 @@ table#ordersTable tr {
 	justify-content: center;
 	font-weight: 700;
 }
+
+#loader {
+	display: flex;
+	justify-content: center;
+}

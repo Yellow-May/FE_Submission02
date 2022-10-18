@@ -6,6 +6,7 @@ let totalPages = 3;
 let currentSearch = "";
 
 const tablebody = document.getElementById('ordersTable').querySelector("tbody");
+const loader = document.getElementById("loader")
 
 // search
 const form = document.getElementById("searchForm");
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
    const data = await protectedFetch(`https://freddy.codesubmit.io/orders?page=${currentPage}&q=${currentSearch}`);
    if (data.orders) {
       totalPages = Math.ceil(data.total / data.orders.length);
+      loader.style.display = "none";
       data.orders.forEach(updateTable)
    }
    prevBtn.style.display = "none";
