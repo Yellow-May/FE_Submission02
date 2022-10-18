@@ -5,12 +5,31 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+		<!-- chartis css -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css"
+			integrity="sha512-V0+DPzYyLzIiMiWCg3nNdY+NyIiK9bED/T1xNBj08CaIUyK3sXRpB26OUCIzujMevxY9TRJFHQIxTwgzb0jVLg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
 		<link rel="stylesheet" href="assets/css/global.css" />
 		<link rel="stylesheet" href="assets/css/dashboard.css" />
 		<title>Fredy's Dashboard</title>
 
+		<!-- charits.js -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js"
+			integrity="sha512-9rxMbTkN9JcgG5euudGbdIbhFZ7KGyAuVomdQDI9qXfPply9BJh0iqA7E/moLCatH2JD4xBGHwV6ezBkCpnjRQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+
 		<script defer src="assets/js/protected-routes.js" type="module"></script>
 		<script defer src="assets/js/navigations.js" type="module"></script>
+		<script defer src="assets/js/protected-request.js" type="module"></script>
+		<script defer src="assets/js/dashboard.js" type="module"></script>
 	</head>
 	<body>
 		<main>
@@ -42,6 +61,19 @@
 						<p>$95K / 876 orders</p>
 					</div>
 				</div>
+
+				<section class="revenue-chart">
+					<div class="heading">
+						<h2>Revenue (last 7 days)</h2>
+
+						<button class="switch">
+							<input type="checkbox" id="switch" />
+							<span></span>
+						</button>
+					</div>
+
+					<div id="revenue-chart"></div>
+				</section>
 			</div>
 		</main>
 	</body>

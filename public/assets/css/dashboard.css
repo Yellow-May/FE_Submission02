@@ -50,13 +50,15 @@ main .content {
 main .content .heading {
 	display: flex;
 	align-items: center;
-	margin-bottom: 24px;
+	justify-content: space-between;
+	margin-bottom: 32px;
 }
 
 main .content .stats {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 16px;
+	margin-bottom: 48px;
 }
 
 main .content .stats .card {
@@ -75,4 +77,44 @@ main .content .stats .card .card-heading {
 main .content .stats .card p {
 	padding-left: 8px;
 	font-weight: 600;
+}
+
+main .content .revenue-chart {
+	max-width: 940px;
+}
+
+.switch {
+	width: 60px;
+	height: 30px;
+	border-radius: 999rem;
+	border: 2px solid gray;
+	position: relative;
+}
+
+.switch input {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.switch span {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 1px;
+	border-radius: 50%;
+	background-color: gray;
+	transition: all 0.25s ease-in-out;
+	pointer-events: none;
+}
+
+.switch input:checked + span {
+	left: 30px;
+	background-color: gray;
 }
