@@ -85,9 +85,9 @@ main .content .revenue-chart {
 
 .switch {
 	width: 60px;
-	height: 30px;
+	height: 27px;
 	border-radius: 999rem;
-	border: 2px solid gray;
+	border: thin solid gray;
 	position: relative;
 }
 
@@ -102,10 +102,10 @@ main .content .revenue-chart {
 }
 
 .switch span {
-	width: 25px;
-	height: 25px;
+	width: 22.5px;
+	height: 22.5px;
 	position: absolute;
-	top: 50%;
+	top: 51.5%;
 	transform: translateY(-50%);
 	left: 1px;
 	border-radius: 50%;
@@ -115,6 +115,6 @@ main .content .revenue-chart {
 }
 
 .switch input:checked + span {
-	left: 30px;
+	left: 34px;
 	background-color: gray;
 }

@@ -44,13 +44,16 @@ const options = {
 new Chartist.Bar('#revenue-chart', getData(overTheWeek), options);
 
 const switchCheckbox = document.getElementById('switch');
+const revenueHeading = document.getElementById("revenueHeading")
 switchCheckbox.addEventListener("change", e => {
    const checked = e.target.checked;
 
    if (checked) {
       new Chartist.Bar('#revenue-chart', getData(overTheYear), options);
+      revenueHeading.innerText = "Revenue (last 12 months)"
    } else {
       new Chartist.Bar('#revenue-chart', getData(overTheWeek), options);
+      revenueHeading.innerText = "Revenue (last 7 days)"
    }
 })
 
