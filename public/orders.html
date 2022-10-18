@@ -11,6 +11,8 @@
 
 		<script defer src="assets/js/protected-routes.js" type="module"></script>
 		<script defer src="assets/js/navigations.js" type="module"></script>
+		<script defer src="assets/js/protected-request.js" type="module"></script>
+		<script defer src="assets/js/orders.js" type="module"></script>
 	</head>
 	<body>
 		<main>
@@ -23,7 +25,32 @@
 					<button>Logout</button>
 				</nav>
 			</aside>
-			<div class="content"></div>
+			<div class="content">
+				<div class="heading">
+					<h1>Orders</h1>
+
+					<form id="searchForm">
+						<input type="search" name="searchbar" placeholder="search..." />
+						<button type="submit">Search</button>
+					</form>
+				</div>
+
+				<table id="ordersTable">
+					<thead>
+						<th>Product Name</th>
+						<th>Date</th>
+						<th>Price</th>
+						<th>Status</th>
+					</thead>
+					<tbody></tbody>
+				</table>
+
+				<div class="pagination">
+					<button type="button" id="prev">&#8249;</button>
+					<span id="view">Page 1 of 20</span>
+					<button type="button" id="next">&#8250;</button>
+				</div>
+			</div>
 		</main>
 	</body>
 </html>
