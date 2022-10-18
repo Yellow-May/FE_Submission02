@@ -1,5 +1,6 @@
 import protectedFetch from "./protected-request.js";
 
+// start of chart logic
 const overTheWeek = new Map([
    [
       'labels',
@@ -56,17 +57,37 @@ switchCheckbox.addEventListener("change", e => {
       revenueHeading.innerText = "Revenue (last 7 days)"
    }
 })
+// end of chart logic
 
+const tablebody = document.getElementById("bestSellersTable").querySelector("tbody");
+
+// on load logic
 document.addEventListener("DOMContentLoaded", async () => {
-   const data = await protectedFetch(`https://freddy.codesubmit.io/dashboard`);
-   data?.dashboard && saveData(data)
+   const chartdata = await protectedFetch(`https://freddy.codesubmit.io/dashboard`);
+   chartdata?.dashboard && saveData(chartdata);
 })
 
+function createRow({ product, revenue, units }) {
+   const newRow = document.createElement("tr");
+   const col1 = document.createElement("td");
+   const col2 = document.createElement("td");
+   const col3 = document.createElement("td");
+   const col4 = document.createElement("td");
+   col1.innerText = product.name;
+   col2.innerText = "";
+   col3.innerText = units.toLocaleString("en");
+   col4.innerText = revenue.toLocaleString("en");
+   newRow.append(...[col1, col2, col3, col4]);
+   tablebody.appendChild(newRow)
+}
+
 function saveData(data) {
-   const { sales_over_time_week, sales_over_time_year } = data?.dashboard;
+   const { sales_over_time_week, sales_over_time_year, bestsellers } = data?.dashboard;
 
    overTheWeek.set('series', Object.values(sales_over_time_week).map(e => e.orders))
    overTheYear.set('series', Object.values(sales_over_time_year).map(e => e.orders))
 
    new Chartist.Bar('#revenue-chart', getData(overTheWeek), options);
+
+   bestsellers.forEach(createRow)
 }
