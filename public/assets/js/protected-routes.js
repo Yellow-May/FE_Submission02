@@ -1,7 +1,7 @@
 let ENV;
 let pathname = window.location.pathname;
 if (pathname.startsWith("/public")) {
-   ENV = "production";
+   ENV = "development";
 }
 
 const AUTH_DATA = JSON.parse(localStorage.getItem("FE_Submission02_Auth"));
