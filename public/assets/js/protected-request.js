@@ -1,5 +1,6 @@
 import { ENV } from "./protected-routes.js";
 
+// reusuable fetch API
 const protectedFetch = async (url, method = "GET") => {
    const AUTH_DATA = JSON.parse(localStorage.getItem("FE_Submission02_Auth"));
 
@@ -11,6 +12,7 @@ const protectedFetch = async (url, method = "GET") => {
          }
       });
 
+      // if request fails with 401, fetch new access_token and try again
       if (firstRes.status === 401) {
          const newAccessToken = await RefreshTokens(AUTH_DATA.refresh_token);
 
@@ -24,6 +26,8 @@ const protectedFetch = async (url, method = "GET") => {
             return (await secondRes.json());
          } else {
             alert('There was an error');
+
+            // if request fails agin with no new access_token, log user out
             localStorage.removeItem("FE_Submission02_Auth");
             if (ENV === "development") {
                window.location.replace("/public/login.html");
@@ -45,7 +49,7 @@ const protectedFetch = async (url, method = "GET") => {
    }
 }
 
-
+// request for new access_token
 async function RefreshTokens(refresh_token) {
    try {
       const res = await fetch(`https://freddy.codesubmit.io/refresh`, {
