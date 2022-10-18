@@ -1,3 +1,5 @@
+import { ENV } from "./protected-routes.js";
+
 const protectedFetch = async (url, method = "GET") => {
    const AUTH_DATA = JSON.parse(localStorage.getItem("FE_Submission02_Auth"));
 
@@ -22,12 +24,24 @@ const protectedFetch = async (url, method = "GET") => {
             return (await secondRes.json());
          } else {
             alert('There was an error');
+            localStorage.removeItem("FE_Submission02_Auth");
+            if (ENV === "development") {
+               window.location.replace("/public/login.html");
+            } else {
+               window.location.replace("/login.html")
+            }
          }
       }
 
       return (await firstRes.json())
    } catch (error) {
-      // alert("There was an error")
+      alert("There was an error")
+      localStorage.removeItem("FE_Submission02_Auth");
+      if (ENV === "development") {
+         window.location.replace("/public/login.html");
+      } else {
+         window.location.replace("/login.html")
+      }
    }
 }
 
