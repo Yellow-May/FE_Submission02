@@ -1,14 +1,26 @@
 import protectedFetch from "./protected-request.js";
 
+// state
+let currentPage = 1;
+let totalPages = 3;
+let currentSearch = "";
+
 const tablebody = document.getElementById('ordersTable').querySelector("tbody");
+
+// search
+const form = document.getElementById("searchForm");
+form.addEventListener("submit", e => {
+   e.preventDefault();
+   const formData = new FormData(form);
+   const input = formData.get("searchbar");
+   currentSearch = input.trim();
+   onChangeRequests();
+})
 
 // pagination
 const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("next");
 const spanView = document.getElementById("view");
-let currentPage = 1;
-let totalPages = 3;
-let currentSearch = "";
 
 // actions
 prevBtn.addEventListener("click", () => {
@@ -40,7 +52,8 @@ async function onChangeRequests() {
    const data = await protectedFetch(`https://freddy.codesubmit.io/orders?page=${currentPage}&q=${currentSearch}`);
    if (data.orders) {
       tablebody.innerText = "";
-      data.orders.forEach(updateTable)
+      data.orders.forEach(updateTable);
+      totalPages = Math.ceil(data.total / data.orders.length);
    }
    updatePagination(currentPage)
 }
