@@ -74,7 +74,7 @@ function createRow({ product, revenue, units }) {
    const col3 = document.createElement("td");
    const col4 = document.createElement("td");
    col1.innerText = product.name;
-   col2.innerText = "";
+   col2.innerText = "No data";
    col3.innerText = units.toLocaleString("en");
    col4.innerText = revenue.toLocaleString("en");
    newRow.append(...[col1, col2, col3, col4]);
